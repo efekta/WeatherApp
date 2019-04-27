@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Погодное приложение</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<!-- header -->
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <h5 class="my-0 mr-md-auto font-weight-normal">efekta</h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a class="p-2 text-dark" href="#">Главная</a>
+    <a class="p-2 text-dark" href="#">Информация</a>
+  </nav>
+  <a class="btn btn-outline-primary" href="#">Документация</a>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-4 offset-2">
+			<h2>Погодное приложение</h2>
+			<form action="" method="POST">
+				{% csrf_token %}
+				<label for="city">Город</label>
+				{{ form.name }}
+				<!-- <input type="text" id="city" class="form-control" name="city" placeholder="Введите город"> -->
+				<input type="submit" name="send" value="Узнать" class="mt-2 btn btn-danger">
+			</form>
+		</div>
+		<div class="col-4 offset-2">
+			<h2>Информация</h2>
+			{% for info in all_info %}
+			<div class="alert alert-info">
+				<div class="row">
+					<div class="col-7">
+						<p><b>Город:</b> {{ info.city }}</p>
+						<p><b>Температура:</b> {{ info.temp }} <sup>o</sup></p>
+					</div>
+					<div class="col-4 offset-1">
+						<img src="http://openweathermap.org/img/w/{{ info.icon }}.png" alt="pic city" class="img-thumbnail">
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
